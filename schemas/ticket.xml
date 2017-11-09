@@ -1,0 +1,6 @@
+<table name="ticket">
+    <column name="ticket_srl" type="number" size="11" notnull="notnull" index="idx_ticket_srl" primary_key="primary_key" />
+    <column name="ticket_type" type="varchar" size="20" notnull="notnull" index="idx_ticket_type" />
+    <column name="member_srl" type="number" size="11" notnull="notnull" default="0" index="idx_member_srl" />
+    <column name="count" type="number" size="11" notnull="notnull" default="0" />
+</table>

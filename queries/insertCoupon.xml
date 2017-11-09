@@ -1,0 +1,16 @@
+<query id="insertCoupon" action="insert">
+    <tables>
+        <table name="coupon" />
+    </tables>
+    <columns>
+        <column name="coupon_srl" var="coupon_srl" filter="number" notnull="notnull" />
+        <column name="member_srl" var="member_srl" filter="number" notnull="notnull" default="0" />
+        <column name="title" var="title" notnull="notnull" />
+        <column name="code" var="code" notnull="notnull" />
+        <column name="point" var="point" filter="number" notnull="notnull" default="0" />
+        <column name="limit" var="limit" filter="number" notnull="notnull" default="0" />
+        <column name="regdate" var="regdate" default="curdate()" />
+        <column name="expire_date" var="expire_date" filter="number" />
+        <column name="extra_vars" var="extra_vars" />
+    </columns>
+</query>

@@ -1,0 +1,11 @@
+<query id="insertCouponUsedLog" action="insert">
+    <tables>
+        <table name="coupon_used_log" />
+    </tables>
+    <columns>
+        <column name="log_srl" var="log_srl" filter="number" notnull="notnull" default="getNextSequence()" />
+        <column name="coupon_srl" var="coupon_srl" filter="number" notnull="notnull" />
+        <column name="member_srl" var="member_srl" filter="number" notnull="notnull" />
+        <column name="regdate" var="regdate" default="curdate()" />
+    </columns>
+</query>

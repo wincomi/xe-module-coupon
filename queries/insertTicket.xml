@@ -1,0 +1,11 @@
+<query id="insertTicket" action="insert">
+    <tables>
+        <table name="ticket" />
+    </tables>
+    <columns>
+        <column name="ticket_srl" var="ticket_srl" filter="number" default="sequence()" />
+        <column name="ticket_type" var="ticket_type" />
+        <column name="member_srl" var="member_srl" filter="number" />
+        <column name="count" var="count" default="0" />
+    </columns>
+</query>

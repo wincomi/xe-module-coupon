@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+    <grants />
+    <permissions />
+    <actions>
+        <action name="dispCouponAdminSetup" type="view" standalone="true" />
+        <action name="dispCouponAdminList" type="view" standalone="true" admin_index="true" />
+        <action name="dispCouponAdminCouponLogList" type="view" standalone="true" />
+        <action name="dispCouponAdminCouponInfo" type="view" standalone="true" />
+        <action name="dispCouponAdminInsertCoupon" type="view" standalone="true" />
+        <action name="dispCouponAdminDeleteCoupon" type="view" standalone="true" />
+        <action name="dispCouponAdminSkinInfo" type="view" standalone="true" />
+        <action name="dispCouponAdminFindMember" type="view" standalone="true" />
+        <action name="dispCouponAdminSampleCode" type="view" standalone="true" />
+
+        <action name="coupon" type="view" standalone="true" index="true" />
+        <action name="dispCouponBox" type="view" standalone="true" />
+
+        <action name="procCoupon" type="controller" standalone="true" />
+
+        <action name="procCouponAdminInsertConfig" type="controller" standalone="true" />
+        <action name="procCouponAdminInsertCoupon" type="controller" standalone="true" />
+        <action name="procCouponAdminDeleteChecked" type="controller" standalone="true" />
+        <action name="procCouponAdminDeleteCoupon" type="controller" standalone="true" />
+        <action name="procCouponAdminGenerateCode" type="controller" standalone="true" />
+    </actions>
+</module>

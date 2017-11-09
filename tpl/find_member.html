@@ -1,0 +1,57 @@
+<!--%import("../../common/css/popup.css")-->
+<!--%import("./js/coupon_popup.js")-->
+
+<div id="popHeader">
+    <h1 class="h1">{$lang->cmd_find_member}</h1>
+</div>
+
+<div id="popBody">
+    <form action="./" method="post">
+	    <input type="hidden" name="act" value="dispCouponAdminFindMember" />
+	    <input type="hidden" name="page" value="" />
+	    <input type="hidden" name="target" value="{$target}" />
+	    <select name="search_target">
+	        <option value="nick_name">{$lang->nick_name}</option>
+	        <option value="email_address">{$lang->email_address}</option>
+	        <option value="user_name">{$lang->user_name}</option>
+	        <option value="user_id">{$lang->user_id}</option>
+	    </select>
+	    <input type="text" name="search_keyword" value="{htmlspecialchars($search_keyword)}" class="inputTypeText" />
+	    <span class="btn"><input type="submit" value="{$lang->cmd_search}" /></span>
+	    <br />
+	    <table class="rowTable" cellspacing="0">
+	    	<thead>
+			    <tr>
+			        <th><div>{$lang->nick_name}</div></th>
+			        <th><div>{$lang->email_address}</div></th>
+			        <th><div>{$lang->user_id}</div></th>
+			        <th><div>{$lang->user_name}</div></th>
+			        <th><div>{$lang->cmd_select}</div></th>
+			    </tr>
+	    	</thead>
+		    <tbody>
+			    <!--@if($member_list)-->
+			    <!--@foreach($member_list as $key => $val)-->
+			    <tr>
+			        <td>{$val->nick_name}</td>
+			        <td>{$val->email_address}</td>
+			        <td>{$val->user_id}</td>
+			        <td>{$val->user_name}</td>
+			        <td><a href="#" onclick="insertMember('{Context::get('target')}', {$val->member_srl}); return false;" class="button green"><span>{$lang->cmd_select}</span></a></td>
+			    </tr>
+			    <!--@end-->
+			    <!--@else-->
+			    <tr>
+			        <td colspan="5">
+			        <!--@if($search_keyword && $search_target)-->
+			        {$lang->msg_no_result}
+			        <!--@else-->
+			        {$lang->msg_no_keyword}
+			        <!--@end-->
+			        </td>
+			    </tr>
+			    <!--@end-->
+		    </tbody>
+	    </table>
+    </form>
+</div>

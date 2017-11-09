@@ -1,0 +1,10 @@
+<filter name="insert_config" module="coupon" act="procCouponAdminInsertConfig" confirm_msg_code="confirm_submit">
+    <form />
+    <parameter>
+        <param name="skin" target="skin" />
+    </parameter>
+    <response callback_func="completeInsertConfig">
+        <tag name="error" />
+        <tag name="message" />
+    </response>
+</filter>

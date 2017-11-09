@@ -1,0 +1,17 @@
+<query id="updateCoupon" action="update">
+    <tables>
+        <table name="coupon" />
+    </tables>
+    <columns>
+        <column name="member_srl" var="member_srl" filter="number" notnull="notnull" default="0" />
+        <column name="title" var="title" notnull="notnull" />
+        <column name="code" var="code" notnull="notnull" />
+        <column name="point" var="point" filter="number" notnull="notnull" default="0" />
+        <column name="limit" var="limit" filter="number" notnull="notnull" default="0" />
+        <column name="expire_date" var="expire_date" default="" filter="number" />
+        <column name="extra_vars" var="extra_vars" default="" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="coupon_srl" var="coupon_srl" notnull="notnull" filter="number" />
+    </conditions>
+</query>

@@ -1,0 +1,124 @@
+input,textarea{outline:none}
+#couponBox h3 {border-bottom:2px solid #ccc; padding:5px 0 5px 25px; margin:0 0 10px 0; background:url(../img/iconH2.gif) no-repeat left center; font-size:12px; color:#666; }
+#couponBox h4 {padding:5px 0 5px 20px; background:url(../img/iconH3.gif) no-repeat left center;}
+#couponBox h4 span.vr { font-size:11px; color:#AAA; }
+#couponBox h4 a.view { font-size:11px; font-family:vertical; color:#777e86; }
+#couponBox p.summary, 
+#couponBox div.infoText { margin:0 0 15px 0; line-height:1.6;}
+#couponBox p.summary{ color:#888;}
+#couponBox p.summary a { text-decoration:none; color:#888; }
+#couponBox p.summary.red { color:#A54D4D; }
+#couponBox p.summary.red a { text-decoration:none; color:#A54D4D; }
+#couponBox div.infoText { color:#888;}
+
+#couponBox .agreementBox { border:1px solid #CCC; margin:10px 0 0 0; padding:10px; border-bottom:none; height:200px; overflow-y:scroll;}
+#couponBox .agreementButton { background-color:#EFEFEF; padding:10px; border:1px solid #CCC; border-top:none; margin-bottom:10px;}
+
+#couponBox .localNavigation { border-bottom:1px solid #ccc; *zoom:1; margin:0 0 20px 0px; padding:0; overflow:hidden; }
+#couponBox .localNavigation:after {content:""; display:block; clear:both;}
+#couponBox .localNavigation li{ position:relative; list-style:none; float:left; margin:0 -1px 0 0; padding:0;background:#fff;}
+#couponBox .localNavigation li a{ float:left; padding:7px 15px 0 15px; height:18px; border:1px solid #ddd; border-bottom:none; background:url(../img/bgTab.gif) repeat-x;}
+#couponBox .localNavigation li a{ text-decoration:none !important; color:#666;}
+#couponBox .localNavigation li.active a{ font-weight:bold; color:#1e6aac;}
+#couponBox .localNavigation li.on { margin-bottom:-1px;}
+#couponBox .localNavigation li.on a{ height:19px; background:none;}
+
+#couponBox .layer { display:none; position:absolute; border:2px solid #777; margin:0; font-size:12px; background:#fff;}
+#couponBox .layer * { margin:0; padding:0; font-size:12px; }
+#couponBox .layer h4 { font-size:14px !important; font-family:Dotum; background:#f4f4f4 !important; padding:8px 30px 8px 15px !important; letter-spacing:-1px !important; }
+#couponBox .layer .xButton { position:absolute; top:9px; right:9px; width:15px; height:14px; background-color:transparent; background:url(../img/buttonClose.gif) no-repeat; border:0; cursor:pointer; overflow:hidden; }
+#couponBox .layer .xButton span { position:relative; z-index:-1; visibility:hidden; }
+#couponBox .layer .layerBody{ margin:15px;}
+
+#couponBox .crossTable{ width:100%; border:0; margin:0 0 20px 0; padding:0;}
+#couponBox .crossTable th div { white-space:nowrap; }
+#couponBox .crossTable th,
+#couponBox .crossTable td{ border:0; padding:5px 10px; vertical-align:top; font-weight:normal;}
+#couponBox .crossTable thead th{ border-top:2px solid #cfcfcf; border-bottom:1px solid #e5e5e5; background-image:url(../img/lineVrText.gif); background-repeat:no-repeat; background-position:left center;}
+#couponBox .crossTable thead th:first-child{ background-image:none;}
+#couponBox .crossTable tbody th{ border-bottom:1px solid #e5e5e5; text-align:left;}
+#couponBox .crossTable td{ border-bottom:1px solid #f0f0f0;}
+
+#couponBox .colTable{ width:100%; border:0; margin:0 0 20px 0; padding:0;}
+#couponBox .colTable th div { white-space:nowrap; }
+#couponBox .colTable th,
+#couponBox .colTable td{ border:0; padding:5px 10px; vertical-align:top; font-weight:normal;}
+#couponBox .colTable th{ border-top:2px solid #cfcfcf; border-bottom:1px solid #e5e5e5; background:#f4f4f4; background-image:url(../img/lineVrText.gif); background-repeat:no-repeat; background-position:left center;}
+#couponBox .colTable th:first-child{ background-image:none;}
+#couponBox .colTable td{ border-bottom:1px solid #f0f0f0;}
+
+#couponBox .rowTable{ width:100%; border:0; border-top:2px solid #cfcfcf; margin:0 0 20px 0; padding:0;}
+#couponBox .rowTable th div { white-space:nowrap; }
+#couponBox .rowTable th,
+#couponBox .rowTable td{ border:0; padding:10px 10px; text-align:left; vertical-align:top; font-weight:normal;}
+#couponBox .rowTable tbody th{ border-bottom:1px solid #e5e5e5;}
+#couponBox .rowTable td{ border-bottom:1px solid #e5e5e5;}
+
+#couponBox .rowTable th.button, 
+#couponBox .colTable th.button, 
+#couponBox .crossTable th.button { text-align:right; background:#EAEAEA; }
+
+#couponBox .colTable td a,
+#couponBox .rowTable td a,
+#couponBox .crossTable td a { color:#000; text-decoration:none; }
+
+#couponBox .colTable td.wide, 
+#couponBox .rowTable td.wide, 
+#couponBox .crossTable td.wide { width:100%;}
+
+#couponBox .rowTable th.title,
+#couponBox .crossTable th.title,
+#couponBox .colTable th.title { padding:10px; font-weight:bold; text-align:center; border-bottom:1px solid #DDD;  background:url(../img/bgTab.gif) repeat-x left bottom;}
+
+#couponBox p { color:#AAA; margin:3px 0 0 0; padding:0;}
+#couponBox .require { color:red; font-size:10px; font-family:tahoma; font-weight:bold; margin-left:5px; }
+#couponBox .publicItem { margin:5px 0 0 0; padding:0; color:#aaa; }
+#couponBox .publicItem input { padding:0; margin: 0; }
+
+#couponBox caption{ font-size:11px; font-family:Tahoma; color:#888; text-align:left;}
+
+#couponBox td.openids div { float:left; margin-right:10px; margin-bottom:10px; }
+#couponBox td.openids div a { color:#AAA; text-decoration:none;}
+#couponBox .openid_user_id { background: url(../img/openid_login_bg.gif) left no-repeat; background-color: #ffffff; background-position: 0 50%; padding:3px 3px 3px 18px; border:1px solid; border-color:#a6a6a6 #d8d8d8 #d8d8d8 #a6a6a6; line-height:1em; vertical-align:middle; color:#666666; width:200px;}
+#couponBox .insertOpenID { clear:both; margin-top:10px; }
+#couponBox .savedContent { margin-top:10px; border:1px solid #EEE; padding:10px; }
+
+#couponBox .pagination{ padding:15px 0; margin:0; text-align:center; clear:both; }
+#couponBox .pagination *{ margin:0; padding:0;}
+#couponBox .pagination img{ border:0;}
+#couponBox .pagination a,
+#couponBox .pagination strong{ position:relative; display:inline-block; text-decoration:none; line-height:normal; color:#333; font-family:Tahoma, Sans-serif; vertical-align:middle;}
+#couponBox .pagination a:hover,
+#couponBox .pagination a:active,
+#couponBox .pagination a:focus{ background-color:#f4f4f4 !important; }
+#couponBox .pagination strong{ color:#ff6600 !important;}
+#couponBox .pagination a.prev,
+#couponBox .pagination a.prevEnd,
+#couponBox .pagination a.next,
+#couponBox .pagination a.nextEnd{ font-weight:normal !important; border:none !important; margin:0 !important; white-space:nowrap; }
+
+#couponBox .pagination.a1 a,
+#couponBox .pagination.a1 strong{ margin:0 -4px; padding:1px 10px 1px 8px; border:none; border-left:1px solid #ccc; border-right:1px solid #ddd; font-weight:bold; font-size:12px; background:#fff;}
+#couponBox .pagination.a1 a.prev{ padding-left:10px; background:#fff url(../img/arrowPrevA1.gif) no-repeat left center; }
+#couponBox .pagination.a1 a.prevEnd{ padding-left:15px; background:#fff url(../img/arrowPrevEndA1.gif) no-repeat left center; }
+#couponBox .pagination.a1 a.next{ padding-right:10px; background:#fff url(../img/arrowNextA1.gif) no-repeat right center; }
+#couponBox .pagination.a1 a.nextEnd{ padding-right:15px; background:#fff url(../img/arrowNextEndA1.gif) no-repeat right center; }
+
+#couponBox .memberSmallBox { border:1px solid #EFEFEF; margin:50px auto 20px auto; padding:0; width:400px;}
+#couponBox .memberSmallBox .header { padding:10px; font-weight:bold; text-align:center; border-bottom:1px solid #DDD;  background:url(../img/bgTab.gif) repeat-x left bottom;}
+#couponBox fieldset { position:relative; border:0; margin:0; padding:10px;}
+#couponBox .memberSmallBox .login dl { margin:0; padding:0; overflow:hidden; margin-right:10px; width:250px;}
+#couponBox .memberSmallBox .login dl dt { margin:0; padding:0; width:100px; clear:left; float:left; color:#54564b; height:24px; padding-top:3px; text-indent:10px;}
+#couponBox .memberSmallBox .login dl dd { margin:0; padding:0; float:left; height:27px; width:150px; }
+#couponBox .memberSmallBox .login .keep { clear:both; white-space:nowrap; margin-left:100px;}
+#couponBox .memberSmallBox .login .keep input { vertical-align:middle;}
+#couponBox .memberSmallBox .login .keep label { margin:0; padding:0; font-size:12px; color:#999999;}
+#couponBox .memberSmallBox .openid_user_id { background: url(../img/openid_login_bg.gif) left no-repeat; background-color: #ffffff; background-position: 0 50%; padding:3px 3px 3px 18px; border:1px solid; border-color:#a6a6a6 #d8d8d8 #d8d8d8 #a6a6a6; line-height:1em; vertical-align:middle; color:#666666; width:120px;}
+#couponBox .memberSmallBox .help { background:#f5f5f3; color:#666666; border-top:1px solid #eaebe7; overflow:hidden; padding:1.1em; color:#ccc;}
+#couponBox .memberSmallBox .help a{ color:#666; text-decoration:underline;}
+#couponBox .memberSmallBox .buttonArea{ position:absolute; top:10px; left:260px;}
+
+
+
+#couponBox ul.checkbox,
+#couponBox ul.radio { list-style:none; margin:0; padding:0; }

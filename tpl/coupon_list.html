@@ -1,0 +1,62 @@
+<!--#include("./header.html")-->
+
+<!--// filter load -->
+<!--%import("./filter/delete_checked.xml")-->
+
+<!-- 정보 -->
+<!--//<span class="btn"><a href="{getUrl('act','dispCouponAdminInsertCoupon')}">{$lang->cmd_coupon_registration}</a></span>-->
+
+<form id="fo_list" action="./" method="get" onsubmit="return procFilter(this, delete_checked)">
+	<table cellspacing="0" class="rowTable clear">
+		<caption>Total {number_format($total_count)}, Page {number_format($page)}/{number_format($total_page)}</caption>
+		<thead>
+			<tr>
+				<th scope="row">{$lang->no}</th>
+				<th scope="row">{$lang->coupon_title}</th>
+				<th scope="row">{$lang->coupon_code}</th>
+				<th scope="row">{$lang->point}</th>
+				<th scope="row">{$lang->coupon_limit}</th>
+				<th scope="row">{$lang->coupon_used_count}</th>
+				<th scope="row">{$lang->coupon_used_log}</th>
+				<th scope="row">{$lang->expire_date}</th>
+				<th scope="row">{$lang->regdate}</th>
+				<th scope="row"><input type="checkbox" onclick="XE.checkboxToggleAll(); return false;" /></th>
+			</tr>
+		</thead>
+	    <tbody>
+	    <!--@if(count($coupon_list))-->
+	    <!--@foreach($coupon_list as $no => $oCoupon)-->
+	    <tr>
+	        <td>{$no}</td>
+	        <td><!--@if($oCoupon->getTitle())--><a href="{getUrl('act', 'dispCouponAdminInsertCoupon', 'coupon_srl', $oCoupon->coupon_srl)}">{$oCoupon->getTitle()}</a><!--@else-->&nbsp;<!--@end--></td>
+	        <td><a href="{getUrl('act', 'dispCouponAdminInsertCoupon', 'coupon_srl', $oCoupon->coupon_srl)}">{$oCoupon->getCode()}</a></td>
+	        <td>{number_format($oCoupon->getPoint())}</td>
+	        <td><!--@if($oCoupon->getLimit())-->{number_format($oCoupon->getLimit())}{$lang->unit__time}<!--@else-->-<!--@end--></td>
+	        <td>{$oCoupon->getUsedCount()}{$lang->unit__time}</td>
+	        <td><a href="{getUrl('act', 'dispCouponAdminCouponLogList', 'coupon_srl', $oCoupon->get('coupon_srl'))}">{$lang->cmd_view}</a></td>
+	        <td><!--@if($oCoupon->get('expire_date'))-->{$oCoupon->getExpireDate()}<!--@else-->-<!--@end--></td>
+	        <td>{$oCoupon->getRegdate()}</td>
+	        <td><input type="checkbox" name="cart" value="{$oCoupon->coupon_srl}" /></td>
+	    </tr>
+	    <!--@end-->
+	    <!--@else-->
+	    <tr>
+	        <td colspan="10" style="text-align:center">{$lang->msg_not_exists_coupons}</td>
+	    </tr>
+	    <!--@end-->
+	    </tbody>
+	</table>
+	<div style="text-align:right"><span class="btn"><input type="submit" value="{$lang->cmd_delete}" /></span></div>
+	<!-- 페이지 네비게이션 -->
+	<div class="pagination a1">
+	    <a href="{getUrl('page','')}" class="prevEnd">&lt; {$lang->first_page}</a> 
+	    <!--@while($page_no = $page_navigation->getNextPage())-->
+	        <!--@if($page == $page_no)-->
+	            <strong>{$page_no}</strong> 
+	        <!--@else-->
+	            <a href="{getUrl('page',$page_no)}">{$page_no}</a> 
+	        <!--@end-->
+	    <!--@end-->
+	    <a href="{getUrl('page',$page_navigation->last_page)}" class="nextEnd">{$lang->last_page} &gt;</a>
+	</div>
+</form>

@@ -1,0 +1,12 @@
+<query id="getCoupon" action="select">
+    <tables>
+        <table name="coupon" />
+    </tables>
+    <columns>
+        <column name="*" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="coupon_srl" var="coupon_srl" filter="number" pipe="and" />
+        <condition operation="equal" column="code" var="code" pipe="and" />
+    </conditions>
+</query>

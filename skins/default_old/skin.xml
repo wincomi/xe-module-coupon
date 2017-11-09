@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skin version="0.2">
+    <title xml:lang="ko">쿠폰 모듈 기본 스킨</title>
+	<title xml:lang="jp">クーポンモジュール基本スキン</title>
+    <description xml:lang="ko">쿠폰 모듈의 기본 스킨입니다.</description>
+	<description xml:lang="jp">クーポンモジュールの基本スキンです.</description>
+    <version>0.1</version>
+    <date>2010-07-04</date>
+    <author email_address="dowon2308@paran.com" link="http://sworld.pe.kr">
+        <name xml:lang="ko">SMaker</name>
+    </author>
+
+    <extra_vars />
+</skin>

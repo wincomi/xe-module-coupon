@@ -1,0 +1,15 @@
+<filter name="insert_coupon" module="coupon" act="procCouponAdminInsertCoupon" confirm_msg_code="confirm_submit">
+	<form>
+		<node target="title" maxlength="250" required="true" />
+		<node target="coupon_code" maxlength="5" required="true" />
+		<node target="coupon_code2" maxlength="5" required="true" />
+		<node target="coupon_code3" maxlength="5" required="true" />
+		<!--<node target="point" filter="number" required="true" />-->
+		<node target="member_srl" filter="number" />
+		<node target="coupon_limit" filter="number" />
+	</form>
+	<response callback_func="completeInsertCoupon">
+		<tag name="error" />
+		<tag name="message" />
+	</response>
+</filter>

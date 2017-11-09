@@ -1,0 +1,12 @@
+<query id="getTicket" action="select">
+    <tables>
+        <table name="ticket" />
+    </tables>
+    <columns>
+        <column name="count" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="ticket_type" var="ticket_type" pipe="and" />
+        <condition operation="equal" column="member_srl" var="member_srl" pipe="and" />
+    </conditions>
+</query>

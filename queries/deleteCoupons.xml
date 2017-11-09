@@ -1,0 +1,8 @@
+<query id="deleteCoupons" action="delete">
+    <tables>
+        <table name="coupon" />
+    </tables>
+    <conditions>
+        <condition operation="in" column="coupon_srl" var="coupon_srl" notnull="notnull" />
+    </conditions>
+</query>

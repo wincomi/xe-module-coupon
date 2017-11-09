@@ -1,0 +1,40 @@
+<include target="header.html" />
+{@
+	$sample_code = sprintf('<a href="%s" onclick="popopen(this.href); return false">%s</a>', getFullUrl('', 'module', 'coupon'), $lang->cmd_use_coupon);
+	$sample_code = htmlspecialchars($sample_code);
+
+	$sample_code2 = sprintf('<a href="%s" onclick="popopen(this.href); return false"><i.m.g src="%s" width="151" height="30" alt="%s" /></a>', getFullUrl('', 'module', 'coupon'), getFullUrl('').'modules/coupon/tpl/img/sample.png', $lang->cmd_use_coupon);
+	$sample_code2 = htmlspecialchars(str_replace('i.m.g', 'img', $sample_code2));
+
+	$sample_code3 = sprintf('<a href="%s" onclick="popopen(this.href); return false"><i.m.g src="%s" width="151" height="30" alt="%s" /></a>', getFullUrl('', 'module', 'coupon'), getFullUrl('').'modules/coupon/tpl/img/sample2.png', $lang->cmd_use_coupon);
+	$sample_code3 = htmlspecialchars(str_replace('i.m.g', 'img', $sample_code3));
+}
+<div class="coupon_saimple table">
+	<table class="rowTable" cellspacing="0" cellpadding="0">
+		<tr>
+			<th><label for="sampleCode">{$lang->sample_code} #1</label></th>
+			<td>
+			   <textarea id="sampleCode" onclick="this.select()">{$sample_code}</textarea>
+			   <p><a href="#" onclick="return false">{$lang->cmd_use_coupon}</a></p>
+			   <p>{$lang->about_coupon_sample_code}</p>
+			</td>
+		</tr>
+		<tr>
+			<th><label for="sampleCode2">{$lang->sample_code} #2</label></th>
+			<td>
+			   <textarea id="sampleCode2" onclick="this.select()">{$sample_code2}</textarea>
+				<p><img src="img/sample.png" width="151" height="30" alt="{$lang->cmd_use_coupon}" alt="{$lang->cmd_use_coupon}" /></p>
+				<p>{$lang->about_coupon_sample_code}</p>
+			</td>
+		</tr>
+		<tr>
+			<th><label for="sampleCode3">{$lang->sample_code} #3</label></th>
+			<td>
+				<textarea id="sampleCode3" onclick="this.select()">{$sample_code3}</textarea>
+				<p><img src="img/sample2.png" width="151" height="30" alt="{$lang->cmd_use_coupon}" alt="{$lang->cmd_use_coupon}" />
+				</p>
+				<p>{$lang->about_coupon_sample_code}</p>
+			</td>
+		</tr>
+	</table>
+</div>

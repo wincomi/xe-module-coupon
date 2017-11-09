@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skin version="0.2">
+    <title xml:lang="ko">The Bootstrap 쿠폰 모듈 스킨</title>
+    <title xml:lang="en">The Bootstrap Coupon Module Skin</title>
+    <description xml:lang="ko">The Bootstrap 테마 용 쿠폰 모듈 스킨입니다.</description>
+    <version>1.0</version>
+    <date>2012-05-01</date>
+    <author email_address="wincomi@me.com" link="http://www.wincomi.com">
+        <name xml:lang="ko">윈컴이</name>
+        <name xml:lang="en">Wincomi</name>
+    </author>
+    <extra_vars />
+</skin>

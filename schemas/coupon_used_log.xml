@@ -1,0 +1,6 @@
+<table name="coupon_used_log">
+    <column name="log_srl" type="number" size="11" notnull="notnull" primary_key="primary_key" />
+    <column name="coupon_srl" type="number" size="11" notnull="notnull" index="idx_coupon_srl" />
+    <column name="member_srl" type="number" size="11" notnull="notnull" index="idx_member_srl" />
+    <column name="regdate" type="date" index="idx_regdate" />
+</table>

@@ -1,0 +1,11 @@
+<table name="coupon">
+    <column name="coupon_srl" type="number" size="11" notnull="notnull" primary_key="primary_key" />
+    <column name="member_srl" type="number" size="11" notnull="notnull" default="0" index="idx_member_srl" />
+    <column name="title" type="varchar" size="250" notnull="notnull" />
+    <column name="code" type="varchar" size="17" notnull="notnull" unique="unique_code" />
+    <column name="point" type="number" size="11" notnull="notnull" default="0" index="idx_point" />
+    <column name="limit" type="number" size="11" notnull="notnull" default="0" index="idx_limit" />
+    <column name="regdate" type="date" index="idx_regdate" />
+    <column name="expire_date" type="date" index="idx_expire_date" />
+    <column name="extra_vars" type="text" />
+</table>

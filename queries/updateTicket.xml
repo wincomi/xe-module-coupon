@@ -1,0 +1,11 @@
+<query id="updateTicket" action="update">
+    <tables>
+        <table name="ticket" />
+    </tables>
+    <conditions>
+        <condition operation="equal" column="ticket_srl" var="ticket_srl" filter="number" notnull="notnull" />
+    </conditions>
+    <columns>
+        <column name="count" var="count" filter="number" />
+    </columns>
+</query>

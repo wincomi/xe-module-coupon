@@ -1,0 +1,33 @@
+<include target="box_header.html" />
+    <h1 class="h1">{$lang->cmd_my_coupon_box}</h1>
+    <div class="table even">
+	    <table class="rowTable" cellspacing="0">
+	    <thead>
+		    <tr>
+		        <th class="title"><div>{$lang->coupon_title}</div></th>
+		        <th class="title"><div>{$lang->coupon_number}</div></th>
+		        <th class="title"><div>{$lang->coupon_expire_date}</div></th>
+		        <th class="title"><div>{$lang->save_point}</div></th>
+		        <th class="title"><div>{$lang->cmd_coupon_use}</div></th>
+		    </tr>
+	    </thead>
+	    <tbody>
+	        <!--@if(count($coupon_list))-->
+	        <!--@foreach($coupon_list as $key => $oCoupon)-->
+	        <tr>
+	            <td>{$oCoupon->getTitle()}</td>
+	            <td>{$oCoupon->getCode()}</td>
+	            <td><!--@if($oCoupon->get('expire_date'))-->{$oCoupon->getExpireDate()}<!--@else-->-<!--@end--></td>
+	            <td>{number_format($oCoupon->getPoint())}</td>
+	            <td><!--@if($oCoupon->isUsed())-->사용함<!--@elseif($oCoupon->isUseable())-->사용가능<!--@else-->사용불가<!--@end--></td>
+	        </tr>
+	        <!--@end-->
+	        <!--@else-->
+	        <tr>
+	            <td colspan="5" style="text-align:center">내 쿠폰함에 쿠폰이 없습니다.</td>
+	        </tr>
+	        <!--@end-->
+	        </tbody>
+	    </table>
+    </div>
+<include target="box_footer.html" />

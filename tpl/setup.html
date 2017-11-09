@@ -1,0 +1,20 @@
+<!--#include("./header.html")-->
+<!--%import("./filter/insert_config.xml")-->
+
+<form method="post" onsubmit="return procFilter(this, insert_config)">
+<table cellspacing="0" class="rowTable clear">
+    <tr>
+        <th>{$lang->skin}</th>
+        <td>
+            <select name="skin">
+                <!--@foreach($skin_list as $key => $val)-->
+                <option value="{$key}"<!--@if($config->skin==$key ||(!$config->skin && $key=='default'))--> selected="selected"<!--@end-->>{$val->title} ({$key})</option>
+                <!--@end-->
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th colspan="2"><span class="btn"><input type="submit" value="{$lang->cmd_save}" /></span></th>
+    </tr>
+</table>
+</form>
