@@ -71,8 +71,9 @@
             // 사용 제한이 있다면
             if($this->get('limit') > 0) {
                 $args->coupon_srl = $this->coupon_srl;
+                unset($args->member_srl);
                 $output = executeQuery('coupon.getCouponUsedLogCount', $args);
-                if($output->data->count>$this->get('limit')) return ;
+                if($output->data->count>=$this->get('limit')) return ;
             }
 
             return false;
