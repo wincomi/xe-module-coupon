@@ -1,20 +1,22 @@
-<!--#include("./header.html")-->
-<!--%import("./filter/insert_config.xml")-->
+<include target="header.html" />
 
-<form method="post" onsubmit="return procFilter(this, insert_config)">
-<table cellspacing="0" class="rowTable clear">
-    <tr>
-        <th>{$lang->skin}</th>
-        <td>
-            <select name="skin">
-                <!--@foreach($skin_list as $key => $val)-->
-                <option value="{$key}"<!--@if($config->skin==$key ||(!$config->skin && $key=='default'))--> selected="selected"<!--@end-->>{$val->title} ({$key})</option>
-                <!--@end-->
-            </select>
-        </td>
-    </tr>
-    <tr>
-        <th colspan="2"><span class="btn"><input type="submit" value="{$lang->cmd_save}" /></span></th>
-    </tr>
-</table>
+<form action="./" class="x_form-horizontal" method="post" onsubmit="return procFilter(this, insert_config)">
+	<div class="x_control-group">
+		<label for="name" class="x_control-label">
+			{$lang->skin} 
+			<a data-admin-toggle="#help_menuName" class="x_icon-question-sign" href="./common/manual/admin/index.html#UMAN_skin" target="_blank">{$lang->help}</a>
+		</label>
+		<div class="x_controls">
+			<select name="skin" class="x_control">
+				<option value="{$key}" selected="selected"|cond="$config->skin == $key || (!$config->skin && $key == 'default')" loop="$skin_list => $key, $val">
+					{$val->title} ({$key})
+				</option>
+			</select>
+		</div>
+	</div>
+	<div class="btnArea x_clearfix">
+		<span class="x_pull-right">
+			<button type="submit" class="x_btn x_btn-primary">{$lang->cmd_save}</button>
+		</span>
+	</div>
 </form>

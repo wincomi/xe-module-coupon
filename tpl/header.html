@@ -1,12 +1,19 @@
-<!--%import("./css/coupon_admin.css")-->
-<!--%import("./js/coupon_admin.js")-->
+<load target="js/coupon_admin.js" />
 
-<h1 class="h1">{$lang->coupon} {$lang->module}</h1>
-
-<ul class="localNavigation" style="margin-top:1em !important">
-    <li<!--@if($act == 'dispCouponAdminSetup')--> class="on"<!--@end-->><a href="{getUrl('', 'module', 'admin', 'act', 'dispCouponAdminSetup')}">{$lang->cmd_coupon_setup}</a></li>
-    <li<!--@if($act == 'dispCouponAdminList')--> class="on"<!--@end-->><a href="{getUrl('', 'module', 'admin', 'act', 'dispCouponAdminList')}">{$lang->cmd_coupon_list}</a></li>
-    <!--<li<!--@if($act == 'dispCouponAdminSkinInfo')--> class="on"<!--@end-->><a href="{getUrl('', 'module', 'admin', 'act', 'dispCouponAdminSkinInfo')}">{$lang->cmd_manage_skin}</a></li>-->
-    <li<!--@if($act == 'dispCouponAdminInsertCoupon')--> class="on"<!--@end-->><a href="{getUrl('', 'module', 'admin', 'act', 'dispCouponAdminInsertCoupon')}">{$lang->cmd_coupon_registration}</a></li>
-	<li<!--@if($act == 'dispCouponAdminSampleCode')--> class="on"<!--@end-->><a href="{getUrl('','module','admin','act','dispCouponAdminSampleCode')}">{$lang->sample_code}</a></li>
+<div class="x_page-header">
+	<h1>{$lang->coupon} {$lang->module}</h1>
+</div>
+<ul class="x_nav x_nav-tabs">
+    <li class="x_active"|cond="$act == 'dispCouponAdminSetup'">
+    	<a href="{getUrl('', 'module', 'admin', 'act', 'dispCouponAdminSetup')}">{$lang->cmd_coupon_setup}</a>
+    </li>
+    <li class="x_active"|cond="$act == 'dispCouponAdminList'">
+    	<a href="{getUrl('', 'module', 'admin', 'act', 'dispCouponAdminList')}">{$lang->cmd_coupon_list}</a>
+    </li>
+    <li class="x_active"|cond="$act == 'dispCouponAdminInsertCoupon'">
+    	<a href="{getUrl('', 'module', 'admin', 'act', 'dispCouponAdminInsertCoupon')}">{$lang->cmd_coupon_registration}</a>
+    </li>
+	<li class="x_active"|cond="$act == 'dispCouponAdminSampleCode'">
+		<a href="{getUrl('','module','admin','act','dispCouponAdminSampleCode')}">{$lang->sample_code}</a>
+	</li>
 </ul>

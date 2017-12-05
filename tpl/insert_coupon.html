@@ -1,66 +1,64 @@
-<!--#include("./header.html")-->
-
-<!--// filter load -->
+<include target="header.html" />
 <!--%import("./filter/insert_coupon.xml")-->
-
-<!--// datepicker javascript plugin load -->
 <!--%load_js_plugin("ui.datepicker")-->
 
-<form action="./" method="get" onsubmit="return procFilter(this, insert_coupon)" class="table">
-	<table class="rowTable" cellspacing="0" cellpadding="0">
-		<tr>
-			<th>{$lang->coupon_title} <em style="color:red">*</em></th>
-			<td>
-				<input type="text" name="title" value="{$oCoupon->getTitle()}" />
-			</td>
-		</tr>
-		<tr>
-			<th>{$lang->coupon_code} <em style="color:red">*</em></th>
-			<td class="code">
-				<input type="text" id="code" name="coupon_code" value="{$code}" maxlength="5" /> - 
-				<input type="text" id="code2" name="coupon_code2" value="{$code2}" maxlength="5" /> - 
-				<input type="text" id="code3" name="coupon_code3" value="{$code3}" maxlength="5" /> <span class="btn"><button type="button" onclick="doGenerateCode();">{$lang->cmd_generate}</button></span>
-			</td>
-		</tr>
-	<tr>
-		<th>{$lang->point}</th>
-		<td>
-			<input type="text" name="point" value="{$oCoupon->getPoint()}" class="inputTypeText" />
-			<p>{$lang->about_point}</p>
-		</td>
-	</tr>
-	<tr>
-		<th>{$lang->coupon_limit}</th>
-		<td>
-			<input type="text" name="coupon_limit" value="{$oCoupon->getLimit()}" class="inputTypeText" />
-			<p>{$lang->about_coupon_limit}</p>
-		</td>
-	</tr>
-	<tr>
-		<th>{$lang->expire_date}</th>
-		<td>
+<form action="./" method="get" onsubmit="return procFilter(this, insert_coupon)" class="x_form-horizontal">
+	<div class="x_control-group">
+		<label for="title" class="x_control-label">
+			{$lang->coupon_title} <em style="color:red">*</em>
+		</label>
+		<div class="x_controls">
+			<input type="text" name="title" value="{$oCoupon->getTitle()}" />
+		</div>
+	</div>
+	<div class="x_control-group">
+		<label class="x_control-label">{$lang->coupon_code} <em style="color:red">*</em></label>
+		<div class="x_controls">
+			<input type="text" id="code" name="coupon_code" value="{$code}" maxlength="5" /> - 
+			<input type="text" id="code2" name="coupon_code2" value="{$code2}" maxlength="5" /> - 
+			<input type="text" id="code3" name="coupon_code3" value="{$code3}" maxlength="5" /> 
+			<button type="button" class="x_btn" onclick="doGenerateCode();">{$lang->cmd_generate}</button>
+		</div>
+	</div>
+	<div class="x_control-group">
+		<label class="x_control-label">{$lang->point}</label>
+		<div class="x_controls">
+			<input type="number" name="point" value="{$oCoupon->getPoint()}" />
+			<p class="x_help-block">{$lang->about_point}</p>
+		</div>
+	</div>
+	<div class="x_control-group">
+		<label class="x_control-label">{$lang->coupon_limit}</label>
+		<div class="x_controls">
+			<input type="number" name="coupon_limit" value="{$oCoupon->getLimit()}" />
+			<p class="x_help-block">{$lang->about_coupon_limit}</p>
+		</div>
+	</div>
+	<div class="x_control-group">
+		<label class="x_control-label">{$lang->expire_date}</label>
+		<div class="x_controls">
 			<input type="hidden" name="expire_date" id="date_expire" value="{$oCoupon->get('expire_date')}" />
-			<input type="text" class="inputDate inputTypeText" value="{$oCoupon->getExpireDate()}" readonly="readonly" />
-			<span class="btn"><input type="button" value="{$lang->cmd_delete}" class="dateRemover" /></span>
-		</td>
-	</tr>
-	<tr>
-		<th>{$lang->own_member}</th>
-		<td>
-			<input type="text" id="member_srl" name="member_srl" value="<!--@if($oCoupon->get('member_srl'))-->{$oCoupon->get('member_srl')}<!--@end-->" class="inputTypeText" />
-			<span class="btn"><a href="{getUrl('', 'module', 'coupon', 'act', 'dispCouponAdminFindMember', 'target', 'member_srl')}" onclick="popopen(this.href); return false;">{$lang->cmd_find_member}</a></span>
-			<p>{$lang->about_own_member}</p>
-		</td>
-	</tr>
-	<tr>
-		<th colspan="2"><span class="btn"><input type="submit" value="{$lang->cmd_coupon_registration}" /></span></th>
-	</tr>
-	</table>
-{$addition_content}
-
+			<input type="text" class="inputDate inputTypeText" value="{$oCoupon->getExpireDate()}" readonly="readonly" style="cursor: pointer" />
+			<button type="button" class="x_btn x_btn-danger">{$lang->cmd_delete}</button>
+		</div>
+	</div>
+	<div class="x_control-group">
+		<label class="x_control-label">{$lang->own_member}</label>
+		<div class="x_controls">
+			<input type="text" id="member_srl" name="member_srl" value="{$oCoupon->get('member_srl')}"|cond="$oCoupon->get('member_srl')" />
+			<a href="{getUrl('', 'module', 'coupon', 'act', 'dispCouponAdminFindMember', 'target', 'member_srl')}" onclick="popopen(this.href); return false;" class="x_btn">{$lang->cmd_find_member}</a>
+			<p class="x_help-block" style="margin-top: 10px">{$lang->about_own_member}</p>
+		</div>
+	</div>
+	<div class="btnArea x_clearfix">
+		<span class="x_pull-right">
+			<button type="submit" class="x_btn x_btn-primary">{$lang->cmd_coupon_registration}</button>
+		</span>
+	</div>
+	{$addition_content}
 </form>
 
-<script type="text/javascript">
+<script>
 (function($){
 	$(function(){
 		var option = { changeMonth: true, changeYear: true, gotoCurrent: false,yearRange:'-100:+10', onSelect:function(){
