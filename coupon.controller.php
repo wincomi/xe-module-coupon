@@ -10,30 +10,30 @@
         }
 
         function procCoupon() {
-            if(Context::getResponseMethod() != 'XMLRPC') return new Object(-1, 'msg_invalid_request');
+            if(Context::getResponseMethod() != 'XMLRPC') return $this->makeObject(-1, 'msg_invalid_request');
 
             // 로그인을 하지 않았을 경우
-            if(!Context::get('is_logged')) return new Object(-1, 'msg_need_login');
+            if(!Context::get('is_logged')) return $this->makeObject(-1, 'msg_need_login');
 
             // 쿠폰 코드를 입력했는지 확인
             $code = Context::get('code');
-            if(!$code) return new Object(-1, 'msg_invalid_request');
+            if(!$code) return $this->makeObject(-1, 'msg_invalid_request');
 
             // 쿠폰이 존재하는지 확인
             $oModel = &getModel('coupon');
             $oCoupon = $oModel->getCouponByCode($code);
 
             // 쿠폰이 존재하지 않으면 에러
-            if(!$oCoupon->isExists()) return new Object(-1, 'msg_not_exists_coupon_code');
+            if(!$oCoupon->isExists()) return $this->makeObject(-1, 'msg_not_exists_coupon_code');
 
             // 쿠폰 사용 권한이 없으면 에러
-            if(!$oCoupon->isGranted()) return new Object(-1, 'msg_not_owned_coupon');
+            if(!$oCoupon->isGranted()) return $this->makeObject(-1, 'msg_not_owned_coupon');
 
             // 이미 쿠폰을 사용했으면 에러
-            if($oCoupon->isUsed()) return new Object(-1, 'msg_already_used_coupon');
+            if($oCoupon->isUsed()) return $this->makeObject(-1, 'msg_already_used_coupon');
 
             // 만료된 쿠폰이면 에러
-            if($oCoupon->isExpired()) return new Object(-1, sprintf(Context::getLang('msg_cannot_use_coupon'), $oCoupon->getExpireDate()));
+            if($oCoupon->isExpired()) return $this->makeObject(-1, sprintf(Context::getLang('msg_cannot_use_coupon'), $oCoupon->getExpireDate()));
 
             // 쿠폰의 포인트를 구함
             $point = $oCoupon->getPoint();
@@ -211,12 +211,12 @@
         }
 
         function triggerAddMemberMenu(&$obj) {
-            if(!Context::get('is_logged')) return new Object();
+            if(!Context::get('is_logged')) return $this->makeObject();
 
             $oMemberController = &getController('member');
             $oMemberController->addMemberMenu('dispCouponBox', 'cmd_my_coupon_box');
 
-            return new Object();
+            return $this->makeObject();
         }
     }
 ?>

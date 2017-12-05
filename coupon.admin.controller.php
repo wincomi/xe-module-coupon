@@ -34,7 +34,7 @@
             $args = Context::gets('coupon_code','coupon_code2','coupon_code3','title','point','member_srl','coupon_limit','expire_date');
 
             // 쿠폰 코드가 정상적으로 넘어왔는지 확인
-            if(!$args->coupon_code || !$args->coupon_code2 || !$args->coupon_code3) return new Object(-1, 'msg_input_coupon_code');
+            if(!$args->coupon_code || !$args->coupon_code2 || !$args->coupon_code3) return $this->makeObject(-1, 'msg_input_coupon_code');
 
             $args->code = sprintf('%s-%s-%s', $args->coupon_code, $args->coupon_code2, $args->coupon_code3);
 
@@ -81,7 +81,7 @@
          */
         function procCouponAdminGenerateCode() {
             // 비정상적인 접근 방지를 위해 XMLRPC로 요청된 것만 받아들임
-            if(Context::getResponseMethod() != 'XMLRPC') return new Object(-1, 'msg_invalid_request');
+            if(Context::getResponseMethod() != 'XMLRPC') return $this->makeObject(-1, 'msg_invalid_request');
 
             // 코드 생성
             $oModel = &getModel('coupon');
@@ -101,7 +101,7 @@
          */
         function procCouponAdminDeleteChecked() {
             $cart = Context::get('cart');
-            if(!$cart) return new Object(-1, 'msg_invalid_request');
+            if(!$cart) return $this->makeObject(-1, 'msg_invalid_request');
 
             // DB instance 생성
             $oDB = &DB::getInstance();

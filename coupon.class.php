@@ -58,7 +58,7 @@
             if(!$oModuleModel->getTrigger('moduleHandler.init', 'coupon', 'controller', 'triggerAddMemberMenu', 'after'))
                 $oModuleController->insertTrigger('moduleHandler.init', 'coupon', 'controller', 'triggerAddMemberMenu', 'after');
 
-            return new Object(0, 'success_updated');
+            return $this->makeObject(0, 'success_updated');
         }
 
         /**
@@ -66,5 +66,10 @@
          **/
         function recompileCache() {
         }
+        
+        public function makeObject($code, $msg)
+		{
+		    return class_exists('BaseObject') ? new BaseObject($code, $msg) : new Object($code, $msg);
+		}
     }
 ?>

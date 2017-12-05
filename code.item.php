@@ -5,7 +5,7 @@
      * @brief  code 객체
      **/
 
-    class codeItem extends Object {
+    class codeItem {
 
         var $code = ''; ///<< 쿠폰 코드
         var $length = 17; ///< 쿠폰 코드 길이

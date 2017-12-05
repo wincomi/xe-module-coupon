@@ -26,7 +26,7 @@
 			if(!Context::get('is_logged')) return $this->dispCouponMessage('msg_need_login');
 
 			$code = htmlspecialchars(Context::get('code'));
-			if($code && strlen($code) != 17) return new Object(-1, 'msg_invalid_request');
+			if($code && strlen($code) != 17) return $this->makeObject(-1, 'msg_invalid_request');
 
 			Context::setBrowserTitle(Context::getLang('cmd_use_coupon'));
 

@@ -111,11 +111,11 @@
 
 		function dispCouponAdminCouponLogList() {
 			$coupon_srl = Context::get('coupon_srl');
-			if(!$coupon_srl) return new Object(-1, 'msg_invalid_request');
+			if(!$coupon_srl) return $this->makeObject(-1, 'msg_invalid_request');
 
 			$oModel = &getModel('coupon');
 			$oCoupon = $oModel->getCoupon($coupon_srl);
-			if(!$oCoupon->isExists()) return new Object(-1, 'msg_invalid_request');
+			if(!$oCoupon->isExists()) return $this->makeObject(-1, 'msg_invalid_request');
 			Context::set('oCoupon' ,$oCoupon);
 
 			$output = $oCoupon->getUsedLogs();
