@@ -164,7 +164,7 @@
          * @brief 등록일을 특정한 format으로 출력
          */
         function getRegdate($format = 'Y-m-d') {
-            return zdate($this->get('regdate_date'), $format);
+            return zdate($this->get('regdate'), $format);
         }
 
         /**
