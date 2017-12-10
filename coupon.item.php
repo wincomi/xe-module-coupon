@@ -180,6 +180,8 @@
          * @brief 사용 기록을 구함
          */
         function getUsedLogs($search_keyword = null, $search_target = null) {
+			$args = new stdClass();
+			$args->page = Context::get('page');
             $args->coupon_srl = $this->coupon_srl;
             $args->order_type = 'desc';
             $output = executeQueryArray('coupon.getCouponUsedLogList', $args);

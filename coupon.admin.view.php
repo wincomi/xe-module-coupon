@@ -40,6 +40,8 @@
 		 * @brief 쿠폰 목록
 		 **/
 		function dispCouponAdminList() {
+			$args = new stdClass();
+			$args->page = Context::get('page');
 			$args->list_count = 20;
 
 			// 쿠폰 목록을 구해옴
