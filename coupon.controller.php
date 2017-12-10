@@ -215,8 +215,6 @@
 
             $oMemberController = &getController('member');
             $oMemberController->addMemberMenu('dispCouponBox', 'cmd_my_coupon_box');
-
-            return $this->makeObject();
         }
     }
 ?>
