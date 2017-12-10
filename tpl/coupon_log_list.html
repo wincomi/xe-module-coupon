@@ -2,51 +2,49 @@
 
 <h3>{sprintf($lang->specific_coupon_info, $oCoupon->getCode())}</h3>
 
-<form id="fo_list" action="./" method="get" class="table">
-<table cellspacing="0" class="rowTable clear">
-	<caption>Total {number_format($total_count)}, Page {number_format($page)}/{number_format($total_page)}</caption>
+<table class="x_table x_table-striped x_table-hover">
+	<caption>
+		<strong>Total: {number_format($total_count)}, Page: {number_format($page)}/{number_format($total_page)}</strong>
+	</caption>
 	<thead>
-	    <tr>
-	        <th scope="row">{$lang->no}</th>
-	        {@$member_config = MemberModel::getMemberConfig();$identifierForm->name=$member_config->identifier;}
-	        <th scope="row">{$lang->nick_name} (<!--@if($identifierForm->name=='email_address')-->{$lang->email}<!--@else-->{$lang->user_id}<!--@end-->)</th>
-	        <th scope="row">{$lang->regdate}</th>
-	    </tr>
+		 <tr>
+			<th scope="col">{$lang->no}</th>
+			{@$member_config = MemberModel::getMemberConfig();$identifierForm->name=$member_config->identifier;}
+			<th scope="col">{$lang->nick_name} (<!--@if($identifierForm->name == 'email_address')-->{$lang->email}<!--@else-->{$lang->user_id}<!--@end-->)</th>
+			<th scope="col">{$lang->regdate}</th>
+		 </tr>
 	</thead>
-    <tbody>
-    <!--@if(count($log_list))-->
-    <!--@foreach($log_list as $no => $val)-->
-    {@
-        $oMemberModel = &getModel('member');
-        $member_info = $oMemberModel->getMemberInfoByMemberSrl($val->member_srl);
-    }
-    <tr>
-        <td>{$no}</td>
-        <td><span class="member_{$val->member_srl}">{$member_info->nick_name}</span> (<!--@if($identifierForm->name=='email_address')-->{$member_info->email_address}<!--@else-->{$member_info->user_id}<!--@end-->)</td>
-        <td>{zdate($val->regdate)}</td>
-    </tr>
-    <!--@end-->
-    <!--@else-->
-    <tr>
-        <td colspan="5">{$lang->msg_not_exists_coupon_used_logs}</td>
-    </tr>
-    <!--@end-->
-    </tbody>
+	<tbody>
+	<tr loop="$log_list => $no, $val">
+		{@
+			$oMemberModel = &getModel('member');
+			$member_info = $oMemberModel->getMemberInfoByMemberSrl($val->member_srl);
+		}
+		<td>{$no}</td>
+		<td><span class="member_{$val->member_srl}">{$member_info->nick_name}</span> (<!--@if($identifierForm->name == 'email_address')-->{$member_info->email_address}<!--@else-->{$member_info->user_id}<!--@end-->)</td>
+		<td>{zdate($val->regdate)}</td>
+	</tr>
+	<tr cond="!$log_list">
+		<td>{$lang->msg_not_exists_coupon_used_logs}</td>
+	</tr>
+	</tbody>
 </table>
 
-<!-- 페이지 네비게이션 -->
-<div class="pagination a1">
-    <a href="{getUrl('page','')}" class="prevEnd">&lt; {$lang->first_page}</a> 
-    <!--@while($page_no = $page_navigation->getNextPage())-->
-        <!--@if($page == $page_no)-->
-            <strong>{$page_no}</strong> 
-        <!--@else-->
-            <a href="{getUrl('page',$page_no)}">{$page_no}</a> 
-        <!--@end-->
-    <!--@end-->
-    <a href="{getUrl('page',$page_navigation->last_page)}" class="nextEnd">{$lang->last_page} &gt;</a>
-</div>
-
-<div class="fl">
-	<span class="btn"><a href="{getUrl('act','dispCouponAdminList', 'coupon_srl', '', 'page', '')}">{$lang->cmd_back}</a></span>
+<div class="x_clearfix">
+	<div class="x_pagination x_pull-left">
+		<ul style="margin: 0">
+			<li class="x_disabled"|cond="!$page || $page == 1">
+				<a href="{getUrl('page', '')}">&laquo; {$lang->first_page}</a>
+			</li>
+			<!--@while($page_no = $page_navigation->getNextPage())-->
+			{@ $last_page = $page_no}
+			<li class="x_active"|cond="$page_no == $page">
+				<a href="{getUrl('page', $page_no)}">{$page_no}</a>
+			</li>
+			<!--@end-->
+			<li class="x_disabled"|cond="$page == $page_navigation->last_page">
+				<a href="{getUrl('page', $page_navigation->last_page)}">{$lang->last_page} &raquo;</a>
+			</li>
+		</ul>
+	</div>
 </div>
