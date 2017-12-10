@@ -1,24 +1,22 @@
-<!--%import("../../common/css/popup.css")-->
-
 <!--%import("./js/coupon.js")-->
 <!--%import("./filter/coupon.xml")-->
 
-<div id="popHeader">
-    <h1 class="h1">{$lang->cmd_use_coupon}</h1>
-</div>
-
 <form method="post" onsubmit="return procFilter(this, coupon)">
-	<div id="popBody">
-	    <table class="rowTable" cellspacing="0">
-	    <tr>
-	        <th>{$lang->coupon_code}</th>
-	        <td>
-	            <input type="text" name="coupon_code" value="{$code}" maxlength="17" class="inputTypeText w130" /> <span class="buttonGray medium"><span class="btn"><input type="submit" value="{$lang->cmd_use_coupon}" /></span></span>
-	            <p class="description">
-	         	   {$lang->description_use_coupon}
-	            </p>
-	        </td>
-	    </tr>
-	    </table>
+	<div class="x_modal-header">
+		<h1>{$lang->cmd_use_coupon}</h1>
+	</div>
+	<div class="x_modal-body x_form-horizontal">
+		<div class="x_control-group">
+			<label class="x_control-label">{$lang->coupon_code}</label>
+			<div class="x_controls">
+				<input type="text" name="coupon_code" value="{$code}" maxlength="17" class="x_form-control" />
+				<p class="x_help-block">{$lang->description_use_coupon}</p>
+			</div>
+		</div>
+	</div>
+	<div class="x_modal-footer">
+		<span class="x_btn-group x_pull-right">
+			<button type="submit" class="x_btn x_btn-inverse">{$lang->cmd_use_coupon}</button>
+		</span>
 	</div>
 </form>

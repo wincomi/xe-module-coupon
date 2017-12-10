@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <skin version="0.2">
-    <title xml:lang="ko">쿠폰 모듈 새로운 기본 스킨</title>
-    <description xml:lang="ko">쿠폰 모듈의 XE 1.5 스타일 기본 스킨입니다.</description>
-    <version>0.1</version>
-    <date>2013-01-28</date>
-    <author email_address="wincomi@me.com" link="http://www.wincomi.com">
-        <name xml:lang="ko">윈컴이</name>
-    </author>
+	<title xml:lang="ko">쿠폰 모듈 기본 스킨</title>
+	<description xml:lang="ko">쿠폰 모듈의 기본 스킨입니다.</description>
+	<version>1.0</version>
+	<date>2017-12-10</date>
+	<author email_address="admin@wincomi.com" link="https://www.wincomi.com">
+		<name xml:lang="ko">윈컴이</name>
+	</author>
 
-    <extra_vars />
+	<extra_vars />
 </skin>
