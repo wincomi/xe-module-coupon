@@ -53,6 +53,7 @@
         }
 
         function getCouponList($obj) {
+			$args = new stdClass();
             $args->sort_index = $obj->sort_index ? $obj->sort_index : 'regdate';
             $args->order_type = $obj->order_type ? $obj->order_type : 'desc';
             $args->list_count = $obj->list_count ? $obj->list_count : 20;
@@ -109,6 +110,7 @@
         }
 
         function getMemberCouponList($obj = null) {
+	        $args = new stdClass();
             $args->member_srl = $obj->member_srl;
             $args->sort_index = $obj->sort_index ? $obj->sort_index : 'regdate';
             $args->order_type = $obj->order_type ? $obj->order_type : 'desc';

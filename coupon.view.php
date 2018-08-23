@@ -44,6 +44,8 @@
 			$oModel = &getModel('coupon');
 
 			$logged_info = Context::get('logged_info');
+
+			$args = new stdClass();
 			$args->member_srl = $logged_info->member_srl;
 			$args->sort_index = 'regdate';
 			$args->order_type = 'desc';

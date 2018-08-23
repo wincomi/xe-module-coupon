@@ -42,6 +42,7 @@
             $logged_info = Context::get('logged_info');
 
             // 쿠폰 정보를 정리
+            $obj = new stdClass();
             $obj->coupon_srl = $oCoupon->get('coupon_srl');
             $obj->member_srl = $oCoupon->get('member_srl');
             $obj->code = $oCoupon->getCode();
@@ -68,6 +69,7 @@
             }
 
             // 쿠폰 사용 기록 남김
+            $log_args = new stdClass();
             $log_args->log_srl = getNextSequence();
             $log_args->coupon_srl = $oCoupon->get('coupon_srl');
             $log_args->member_srl = $logged_info->member_srl;
@@ -109,6 +111,7 @@
 
             $oCouponModel = &getModel('coupon');
 
+			$args = new stdClass();
             $args->ticket_type = $ticket_type;
             $args->member_srl = $member_srl;
             $args->count = $count;
@@ -116,6 +119,7 @@
             // 등록된 응모권이 있는지 확인
             $ticket = $oCouponModel->getTicket($args);
 
+			$insert_args = new stdClass();
             $insert_args->ticket_srl = $ticket->ticket_srl;
             $insert_args->ticket_type = $ticket_type;
             $insert_args->member_srl = $member_srl;
@@ -137,6 +141,7 @@
 
             $oCouponModel = &getModel('coupon');
 
+			$args = new stdClass();
             $args->ticket_type = $ticket_type;
             $args->member_srl = $member_srl;
             $args->count = $count;
@@ -145,6 +150,7 @@
             $ticket = $oCouponModel->getTicket($args);
             if(!$ticket) return;
 
+			$insert_args = new stdClass();
             $insert_args->ticket_srl = $ticket->ticket_srl;
             $insert_args->ticket_type = $ticket_type;
             $insert_args->member_srl = $member_srl;
@@ -160,6 +166,7 @@
          * @brief 응모권 추가
          */
         function insertTicket($obj) {
+			$args = new stdClass();
             $args->ticket_srl = getNextSequence();
             $args->ticket_type = $obj->ticket_type;
             $args->member_srl = $obj->member_srl;
@@ -171,6 +178,7 @@
          * @brief 응모권 업데이트
          */
         function updateTicket($obj) {
+			$args = new stdClass();
             $args->ticket_srl = $obj->ticket_srl;
             $args->count = $obj->count;
             return executeQuery('coupon.updateTicket', $args);
@@ -182,6 +190,7 @@
         function insertCoupon($obj, $extra_vars) {
             if(!$obj) return;
 
+			$args = new stdClass();
             $args->coupon_srl = getNextSequence();
             $args->member_srl = $obj->member_srl;
             $args->title = $obj->title;
@@ -199,6 +208,7 @@
         function updateCoupon($obj, $extra_vars) {
             if(!$obj) return;
 
+			$args = new stdClass();
             $args->coupon_srl = $obj->coupon_srl;
             $args->member_srl = $obj->member_srl;
             $args->title = $obj->title;

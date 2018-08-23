@@ -171,6 +171,7 @@
          * @brief 쿠폰을 사용한 횟수를 구함
          */
         function getUsedCount() {
+			$args = new stdClass();
             $args->coupon_srl = $this->coupon_srl;
             $output = executeQuery('coupon.getCouponUsedLogCount', $args);
             return $output->data->count;
