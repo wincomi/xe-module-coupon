@@ -5,7 +5,7 @@
      * @brief  coupon 객체
      **/
 
-    class couponItem extends Object {
+    class couponItem extends BaseObject {
 
         var $coupon_srl = 0;
 
