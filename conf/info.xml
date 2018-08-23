@@ -5,13 +5,13 @@
     <title xml:lang="en">Coupon</title>
     <description xml:lang="ko">관리자가 쿠폰을 발급하여 회원이 쿠폰을 사용하면 포인트나 부가 아이템, 특권 등을 얻을 수 있는 모듈입니다. 원작 : SMaker, 일어번역 : HIRO</description>
     <description xml:lang="jp">管理者がクーポンを発給して会員がクーポンを使えばポイントや付加アイテム,特権などを得ることができるモジュールです.</description>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <date>2017-11-31</date>
     <category>service</category>
 
     <author email_address="admin@wincomi.com" link="https://www.wincomi.com">
-        <name xml:lang="ko">윈컴이</name>
-        <name xml:lang="en">Wincomi</name>
-        <name xml:lang="jp">Wincomi</name>
+        <name xml:lang="ko">코미</name>
+        <name xml:lang="en">COMI</name>
+        <name xml:lang="jp">COMI</name>
     </author>
 </module>
