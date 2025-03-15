@@ -22,8 +22,8 @@
         function getModuleConfig() {
             static $config = null;
             if(is_null($config)) {
-                $oModuleModel = &getModel('module');
-                $config = $oModuleModel->getModuleConfig('coupon');
+                $oModuleModel = getModel('module');
+                $config = $oModuleModel->getModuleConfig('coupon') ?: new stdClass;
                 if(!$config->skin) $config->skin = 'default';
             }
             return $config;
@@ -121,7 +121,7 @@
             $output = executeQuery('coupon.getMemberCouponList', $args);
 
             // 결과가 없거나 오류 발생시 그냥 return
-            if(!$output->toBool()||!count($output->data)) return $output;
+            if(!$output->toBool() || !isset($output->data)) return $output;
 
             $data = $output->data;
             unset($output->data);

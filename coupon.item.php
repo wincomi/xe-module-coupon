@@ -9,6 +9,12 @@
 
         var $coupon_srl = 0;
 
+        public function __construct($coupon_srl = 0) {
+            $this->coupon_srl = $coupon_srl;
+
+            $this->_loadFromDB();
+        }
+        
         function couponItem($coupon_srl = 0) {
             $this->coupon_srl = $coupon_srl;
 
@@ -28,6 +34,7 @@
         function _loadFromDB() {
             if(!$this->coupon_srl && !$this->code) return;
 
+            $args = new stdClass;
             if($this->coupon_srl) $args->coupon_srl = $this->coupon_srl;
             $args->code = $this->code;
             $output = executeQuery('coupon.getCoupon', $args);
@@ -63,6 +70,7 @@
             if(!$logged_info) return;
 
             //쿠폰 사용 기록이 있는지 확인
+            $args = new stdClass;
             $args->coupon_srl = $this->coupon_srl;
             $args->member_srl = $logged_info->member_srl;
             $output = executeQuery('coupon.getCouponUsedLogCount', $args);

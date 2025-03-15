@@ -20,7 +20,7 @@
             if(!$code) return $this->makeObject(-1, 'msg_invalid_request');
 
             // 쿠폰이 존재하는지 확인
-            $oModel = &getModel('coupon');
+            $oModel = getModel('coupon');
             $oCoupon = $oModel->getCouponByCode($code);
 
             // 쿠폰이 존재하지 않으면 에러
@@ -59,12 +59,12 @@
             if(!$trigger_output->toBool()) return $trigger_output;
 
             // 트랜잭션 시작
-            $oDB = &DB::getInstance();
+            $oDB = DB::getInstance();
             $oDB->begin();
 
             // 포인트 증감
             if($point) {
-                $oPointController = &getController('point');
+                $oPointController = getController('point');
                 $oPointController->setPoint($logged_info->member_srl, $point, 'add');
             }
 
@@ -109,7 +109,7 @@
         function addTicket($ticket_type = '', $member_srl, $count) {
             if(!$ticket_type || !$member_srl || $count<1) return;
 
-            $oCouponModel = &getModel('coupon');
+            $oCouponModel = getModel('coupon');
 
 			$args = new stdClass();
             $args->ticket_type = $ticket_type;
@@ -139,7 +139,7 @@
         function subtractTicket($ticket_type = '', $member_srl, $count) {
             if(!$ticket_type || !$member_srl) return;
 
-            $oCouponModel = &getModel('coupon');
+            $oCouponModel = getModel('coupon');
 
 			$args = new stdClass();
             $args->ticket_type = $ticket_type;
@@ -221,9 +221,9 @@
         }
 
         function triggerAddMemberMenu(&$obj) {
-            if(!Context::get('is_logged')) return $this->makeObject();
+            if(!Context::get('is_logged')) return;
 
-            $oMemberController = &getController('member');
+            $oMemberController = getController('member');
             $oMemberController->addMemberMenu('dispCouponBox', 'cmd_my_coupon_box');
         }
     }

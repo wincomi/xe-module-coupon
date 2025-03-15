@@ -9,7 +9,11 @@
 	<thead>
 		 <tr>
 			<th scope="col">{$lang->no}</th>
-			{@$member_config = MemberModel::getMemberConfig();$identifierForm->name=$member_config->identifier;}
+			{@
+				$member_config = MemberModel::getMemberConfig();
+				$identifierForm = new stdClass;
+				$identifierForm->name = $member_config->identifier;
+			}
 			<th scope="col">{$lang->nick_name} (<!--@if($identifierForm->name == 'email_address')-->{$lang->email}<!--@else-->{$lang->user_id}<!--@end-->)</th>
 			<th scope="col">{$lang->regdate}</th>
 		 </tr>
@@ -17,7 +21,7 @@
 	<tbody>
 	<tr loop="$log_list => $no, $val">
 		{@
-			$oMemberModel = &getModel('member');
+			$oMemberModel = getModel('member');
 			$member_info = $oMemberModel->getMemberInfoByMemberSrl($val->member_srl);
 		}
 		<td>{$no}</td>

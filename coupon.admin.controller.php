@@ -20,7 +20,7 @@
             $config = Context::getRequestVars();
             if(!$config->skin) $config->skin = 'default';
 
-            $oModuleController = &getController('module');
+            $oModuleController = getController('module');
             $oModuleController->insertModuleConfig('coupon', $config);
 
             $this->setMessage('success_saved');
@@ -39,7 +39,7 @@
             $args->code = sprintf('%s-%s-%s', $args->coupon_code, $args->coupon_code2, $args->coupon_code3);
 
             // 발급된 쿠폰 코드인지 확인
-            $oModel = &getModel('coupon');
+            $oModel = getModel('coupon');
             $oCoupon = $oModel->getCouponByCode($args->code);
 
             // 확장 변수만 골라냄
@@ -58,7 +58,7 @@
             unset($extra_vars->coupon_limit);
             unset($extra_vars->expire_date);
 
-            $oCouponController = &getController('coupon');
+            $oCouponController = getController('coupon');
 
             // 발급된 쿠폰 코드일 경우 수정
             if($oCoupon->isExists()) {
@@ -84,7 +84,7 @@
             if(Context::getResponseMethod() != 'XMLRPC') return $this->makeObject(-1, 'msg_invalid_request');
 
             // 코드 생성
-            $oModel = &getModel('coupon');
+            $oModel = getModel('coupon');
             $code = $oModel->generateCode();
 
             // 생성된 코드를 분리
@@ -104,7 +104,7 @@
             if(!$cart) return $this->makeObject(-1, 'msg_invalid_request');
 
             // DB instance 생성
-            $oDB = &DB::getInstance();
+            $oDB = DB::getInstance();
 
             // 트렌잭션 시작
             $oDB->begin();

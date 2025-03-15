@@ -11,7 +11,7 @@
 		 * @brief 초기화
 		 **/
 		function init() {
-			$oModel = &getModel('coupon');
+			$oModel = getModel('coupon');
 			$this->config = $oModel->getModuleConfig();
 			$this->skin = $this->config->skin;
 
@@ -41,7 +41,7 @@
 			// 권한 체크
 			if(!Context::get('is_logged')) return $this->dispCouponMessage('msg_need_login');
 
-			$oModel = &getModel('coupon');
+			$oModel = getModel('coupon');
 
 			$logged_info = Context::get('logged_info');
 

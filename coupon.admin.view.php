@@ -14,7 +14,7 @@
 		 **/
 		function init() {
 			// 설정 정보를 받아옴 (module model 객체를 이용)
-			$oModel = &getModel('coupon');
+			$oModel = getModel('coupon');
 			$this->config = $oModel->getModuleConfig();
 			Context::set('config', $this->config);
 
@@ -28,7 +28,7 @@
 		 */
 		function dispCouponAdminSetup() {
 			// 스킨 목록을 구함
-			$oModuleModel = &getModel('module');
+			$oModuleModel = getModel('module');
 			$skin_list = $oModuleModel->getSkins($this->module_path);
 
 			Context::set('skin_list', $skin_list);
@@ -45,7 +45,7 @@
 			$args->list_count = 20;
 
 			// 쿠폰 목록을 구해옴
-			$oModel = &getModel('coupon');
+			$oModel = getModel('coupon');
 			$output = $oModel->getCouponList($args);
 
 			Context::set('total_count', $output->total_count);
@@ -69,7 +69,7 @@
 
 			$coupon_srl = Context::get('coupon_srl');
 
-			$oCouponModel = &getModel('coupon');
+			$oCouponModel = getModel('coupon');
 			$oCoupon = $oCouponModel->getCoupon($coupon_srl);
 
 			if($oCoupon->isExists()) {
@@ -89,7 +89,7 @@
 		 * @brief 스킨 설정
 		 **/
 		function dispCouponAdminSkinInfo() {
-			$oModuleModel = &getModel('module');
+			$oModuleModel = getModel('module');
 			$skin_info = $oModuleModel->loadSkinInfo($this->module_path, $this->config->skin);
 			$skin_vars = unserialize($this->config->skin_vars);
 
@@ -114,11 +114,10 @@
 		function dispCouponAdminCouponLogList() {
 			$coupon_srl = Context::get('coupon_srl');
 			if(!$coupon_srl) return $this->makeObject(-1, 'msg_invalid_request');
-
-			$oModel = &getModel('coupon');
+			$oModel = getModel('coupon');
 			$oCoupon = $oModel->getCoupon($coupon_srl);
 			if(!$oCoupon->isExists()) return $this->makeObject(-1, 'msg_invalid_request');
-			Context::set('oCoupon' ,$oCoupon);
+			Context::set('oCoupon', $oCoupon);
 
 			$output = $oCoupon->getUsedLogs();
 			Context::set('page', $output->page);

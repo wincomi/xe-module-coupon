@@ -12,7 +12,7 @@
          **/
         function moduleInstall() {
             // action forward에 등록 
-            $oModuleController = &getController('module');
+            $oModuleController = getController('module');
             $oModuleController->insertActionForward('coupon', 'view', 'coupon');
             $oModuleController->insertTrigger('moduleHandler.init', 'coupon', 'controller', 'triggerAddMemberMenu', 'after');
         }
@@ -22,7 +22,7 @@
          */
         function moduleUninstall() {
             // action forward 삭제
-            $oModuleController = &getController('module');
+            $oModuleController = getController('module');
             $oModuleController->deleteActionForward('coupon', 'view', 'coupon');
         }
 
@@ -30,8 +30,8 @@
          * @brief 설치가 이상이 없는지 체크하는 method
          **/
         function checkUpdate() {
-            $oDB = &DB::getInstance();
-            $oModuleModel = &getModel('module');
+            $oDB = DB::getInstance();
+            $oModuleModel = getModel('module');
 
             // coupon 테이블에 title 칼럼 추가 (2010/07/10)
             if(!$oDB->isColumnExists('coupon', 'title')) return true;
@@ -46,9 +46,9 @@
          * @brief 업데이트 실행
          **/
         function moduleUpdate() {
-            $oDB = &DB::getInstance();
-            $oModuleModel = &getModel('module');
-            $oModuleController = &getController('module');
+            $oDB = DB::getInstance();
+            $oModuleModel = getModel('module');
+            $oModuleController = getController('module');
 
             // coupon 테이블에 title 칼럼 추가 (2010/07/10)
             if(!$oDB->isColumnExists('coupon', 'title'))
